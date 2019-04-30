@@ -1,0 +1,9 @@
+D:\D.Bank\Bank_Test_f.Replace\Bank_Test_f.Replace\obj\x86\Debug\Bank_Test_f.Replace.Form1.resources
+D:\D.Bank\Bank_Test_f.Replace\Bank_Test_f.Replace\obj\x86\Debug\Bank_Test_f.Replace.Properties.Resources.resources
+D:\D.Bank\Bank_Test_f.Replace\Bank_Test_f.Replace\obj\x86\Debug\Bank_Test_f.Replace.csproj.GenerateResource.Cache
+D:\D.Bank\Bank_Test_f.Replace\Bank_Test_f.Replace\bin\Debug\Bank_Test_f.Replace.exe
+D:\D.Bank\Bank_Test_f.Replace\Bank_Test_f.Replace\bin\Debug\Bank_Test_f.Replace.pdb
+D:\D.Bank\Bank_Test_f.Replace\Bank_Test_f.Replace\obj\x86\Debug\Bank_Test_f.Replace.exe
+D:\D.Bank\Bank_Test_f.Replace\Bank_Test_f.Replace\obj\x86\Debug\Bank_Test_f.Replace.pdb
+D:\D.Bank\Bank_Test_f.Replace\Bank_Test_f.Replace\obj\x86\Debug\Bank_Test_f.Replace.csprojAssemblyReference.cache
+D:\D.Bank\Bank_Test_f.Replace\Bank_Test_f.Replace\obj\x86\Debug\Bank_Test_f.Replace.csproj.CoreCompileInputs.cache
