@@ -2,6 +2,13 @@
 #include <LiquidCrystal_I2C.h>
 LiquidCrystal_I2C lcd(0x3F, 16, 2);
 
+#define BLYNK_PRINT Serial
+#include <WiFi.h>
+#include <WiFiClient.h>
+#include <BlynkSimpleEsp32.h>
+
+int RelayLight=12;
+int RelayValue=13;
 int sensorLight=2;
 int sensorValue=4;
 
@@ -9,18 +16,20 @@ int sensorValue1 = 0;        // ตัวแปรค่า Analog
 int outputValue1 = 0;        // ตัวแปรสำหรับ Map เพื่อคิด %
 int sensorValue2 = 0;        // ตัวแปรค่า Analog
 int outputValue2 = 0;        // ตัวแปรสำหรับ Map เพื่อคิด %
-โค๊ดโปรแกรมแบบไม่เชื่อมต่อ Blynk
 
-void setup() {
-  Serial.begin(115200); // set up serial port for 9600 baud (speed)
-  delay(500); // wait for display to boot up
-  lcd.begin();
-  lcd.backlight();
+char auth[] = "L5xSTLXHIkZDiG_bWK8JqeWinn_G76xG";
+char ssid[] = "CHALOR@1B";
+char pass[] = "0862136574";
+char server[] = "oasiskit.com";
+int port = 8080;
 
+BlynkTimer timer;
+BLYNK_CONNECTED(){
+  Blynk.syncAll();
 }
 
-void loop() {
- sensorValue1 = analogRead(sensorLight);
+void sensor(){
+  sensorValue1 = analogRead(sensorLight);
   outputValue1 = map(sensorValue1,0,4095,100,0);
   Serial.print("Light: ");
   Serial.print(outputValue1);
@@ -33,7 +42,7 @@ void loop() {
   lcd.print(" %");
   
   sensorValue2=analogRead(sensorValue);
-  outputValue2 =map(sensorValue2,0,4095,100,0);
+  outputValue2 =map(sensorValue2,0,4095,0,100);
   Serial.print("Value: ");
   Serial.print(outputValue2);
   Serial.println(" %");
@@ -45,4 +54,17 @@ void loop() {
   lcd.print(" %");
   delay(1000);
 
+}
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(RelayLight,OUTPUT);
+  pinMode(RelayValue,OUTPUT);
+  Blynk.begin(auth, ssid, pass, server, port);
+  timer.setInterval(500,sensor);
+}
+
+void loop() {
+ Blynk.run();
+ timer.run();
 }
